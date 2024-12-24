@@ -92,3 +92,23 @@ which can be installed using pip:
     $ pip install -U kaleido
 
 
+2024-12-25 02:10:04,323 - CRITICAL - Unhandled Exception in process_end_city: Ошибка преобразования данных, покеда
+2024-12-25 02:10:04,326 - CRITICAL - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 92, in process_end_city
+    weather_data = WeatherReceiver(weather_api_key).get_weather(city_coords[0], city_coords[1])
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/weather_receiver.py", line 58, in get_weather
+    raise Exception('Ошибка преобразования данных, покеда')
+Exception: Ошибка преобразования данных, покеда
+
+2024-12-25 02:11:01,232 - CRITICAL - Unhandled Exception in process_start_city: Ошибка преобразования данных, покеда
+2024-12-25 02:11:01,233 - CRITICAL - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 74, in process_start_city
+    weather_data = WeatherReceiver(weather_api_key).get_weather(city_coords[0], city_coords[1])
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/weather_receiver.py", line 58, in get_weather
+    raise Exception('Ошибка преобразования данных, покеда')
+Exception: Ошибка преобразования данных, покеда
+
