@@ -5,6 +5,7 @@ import logging
 import asyncio
 import os
 from dotenv import load_dotenv
+from bot.handlers import start, help, weather
 
 load_dotenv()
 
@@ -17,6 +18,11 @@ API_TOKEN = os.getenv('API_TOKEN')
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
+dp.include_routers(
+    start.router,
+    help.router,
+    weather.router
+)
 
 # Запуск бота
 if __name__ == '__main__':
