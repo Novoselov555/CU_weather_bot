@@ -47,8 +47,4 @@ pip install kaleido
 ```
 - Ошибки логируются в файл `bot_errors.log`.
 
-## Контакты
-Если у вас есть вопросы или предложения, обращайтесь:
-- Telegram: [@your_username](https://t.me/your_username)
-- Email: your_email@example.com
 
