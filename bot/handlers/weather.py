@@ -14,7 +14,7 @@ from functools import wraps
 
 router = Router()
 coords_api_key = '5cbf1bfd-9264-477c-b05c-2af092e99e54'
-weather_api_key = 'Rg2Bp0Mxu9Lpz4uabYzfOZuEbrt1pKP9'
+weather_api_key = 'Hz0V96PzSdHT9Bbj1UpGKLcv1WQkGa4w'
 
 logging.basicConfig(level=logging.ERROR, filename='bot_errors.log',
                     format='%(asctime)s - %(levelname)s - %(message)s')
