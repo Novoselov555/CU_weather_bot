@@ -23,16 +23,25 @@ def generate_graphs(user_id, city_id, days):
         title='Температурный прогноз на несколько дней'
     )
 
+    # Добавляем подписи к точкам на графике температуры
+    for trace in fig_temp.data:
+        trace.update(mode='lines+markers+text', textposition='top center')
+        trace.text = [f'{v}°C' for v in (df['max_temp'] if 'max_temp' in trace.name else df['min_temp'])]
+
     # Построение графика вероятности дождя
     fig_rain = px.bar(
         df,
         x='date',
         y=[df['day_forecast'].apply(lambda x: x['rain_probability']),
            df['night_forecast'].apply(lambda x: x['rain_probability'])],
-        labels={'value': 'Вероятность дождя (%)', 'date': 'Дата'},
+        labels={'value': 'Вероятность дождя (%)', 'date': 'Дата',
+                'wide_variable_0': 'Днем', 'wide_variable_1': 'Ночью'},
         title='Вероятность дождя на несколько дней'
     )
     fig_rain.update_layout(barmode='group', xaxis_tickangle=-45)
+
+    # Добавляем подписи к столбцам на графике вероятности дождя
+    fig_rain.update_traces(texttemplate='%{y:.0f}%', textposition='outside')
 
     # Сохранение графиков в виде изображений
     temp_path = f'bot/graphs/temp_{user_id}_{city_id}.png'

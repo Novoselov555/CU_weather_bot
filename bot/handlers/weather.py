@@ -60,7 +60,7 @@ async def ask_start_city(message: Message, state: FSMContext):
     user_id = message.from_user.id
     with open(f'bot/database/database_{user_id}.json', 'w', encoding='utf-8') as db:
         json.dump({}, db, ensure_ascii=False, indent=4)
-    await message.answer('Введите пункт отправления: ')
+    await message.answer('🌆 Введите пункт отправления: ')
     await state.set_state(WeatherForm.start_city)
 
 
@@ -79,7 +79,7 @@ async def process_start_city(message: Message, state: FSMContext):
     }
     download_db(f'bot/database/database_{user_id}.json', db)
 
-    await message.answer('Введите пункт прибытия: ')
+    await message.answer('🚄 Введите пункт прибытия: ')
     await state.set_state(WeatherForm.end_city)
 
 
@@ -137,7 +137,7 @@ async def process_new_city(message: Message, state: FSMContext):
     }
     download_db(f'bot/database/database_{user_id}.json', db)
     await message.answer(
-        'Заезжаем еще куда-нибудь?',
+        '🗺️ Заезжаем еще куда-нибудь?',
         reply_markup=get_confirm_keyboard()
     )
     await state.set_state(WeatherForm.confirm_new_city)
@@ -159,7 +159,7 @@ async def forecast(message: Message, state: FSMContext):
     if ans in forecast_days:
         days = forecast_days[ans]
         for city, city_data in db.items():
-            await message.answer(f"Прогноз погоды для города: {city_data['city_name']}")
+            await message.answer(f"📍 Прогноз погоды для города: {city_data['city_name']}")
             weather_data = city_data['weather_data']
             for i in range(days):
                 await send_forecast(message, weather_data[i])
@@ -167,7 +167,7 @@ async def forecast(message: Message, state: FSMContext):
             await message.answer_photo(FSInputFile(temp_path))
             await message.answer_photo(FSInputFile(rain_path))
     else:
-        await message.answer('Некорректный ввод, переделывайте')
+        await message.answer('❌ Некорректный ввод, попробуйте еще раз.')
         return
 
 
@@ -179,14 +179,14 @@ async def send_forecast(message: Message, weather_data: dict):
     day_forecast = weather_data['day_forecast']
     night_forecast = weather_data['night_forecast']
 
-    await message.answer(f"День {date}:")
-    await message.answer(f"Температура: {max_temp}\n"
-                         f"Влажность: {day_forecast['humidity']}\n"
-                         f"Скорость ветра: {day_forecast['wind_speed']}\n"
-                         f"Вероятность дождя: {day_forecast['rain_probability']}")
+    await message.answer(f"🌞 <b>День {date}:</b>", parse_mode='HTML')
+    await message.answer(f"🌡️ Температура: {max_temp}°C\n"
+                         f"💧 Влажность: {day_forecast['humidity']}%\n"
+                         f"💨 Скорость ветра: {day_forecast['wind_speed']} м/с\n"
+                         f"☔ Вероятность дождя: {day_forecast['rain_probability']}%")
 
-    await message.answer("Ночь:")
-    await message.answer(f"Температура: {min_temp}\n"
-                         f"Влажность: {night_forecast['humidity']}\n"
-                         f"Скорость ветра: {night_forecast['wind_speed']}\n"
-                         f"Вероятность дождя: {night_forecast['rain_probability']}")
+    await message.answer(f"🌙 <b>Ночь:</b>", parse_mode='HTML')
+    await message.answer(f"🌡️ Температура: {min_temp}°C\n"
+                         f"💧 Влажность: {night_forecast['humidity']}%\n"
+                         f"💨 Скорость ветра: {night_forecast['wind_speed']} м/с\n"
+                         f"☔ Вероятность дождя: {night_forecast['rain_probability']}%")
