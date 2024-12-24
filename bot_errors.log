@@ -1,0 +1,94 @@
+2024-12-25 01:38:48,958 - ERROR - ValueError in process_start_city: Такая точка на карте земли не найдена
+2024-12-25 01:38:49,003 - ERROR - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 72, in process_start_city
+    city_coords = GetCoords(coords_api_key).get_coords_by_address(city)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/convert_from_address_to_coordinates.py", line 28, in get_coords_by_address
+    raise ValueError('Такая точка на карте земли не найдена')
+ValueError: Такая точка на карте земли не найдена
+
+2024-12-25 01:38:54,012 - ERROR - ValueError in process_start_city: Такая точка на карте земли не найдена
+2024-12-25 01:38:54,012 - ERROR - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 72, in process_start_city
+    city_coords = GetCoords(coords_api_key).get_coords_by_address(city)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/convert_from_address_to_coordinates.py", line 28, in get_coords_by_address
+    raise ValueError('Такая точка на карте земли не найдена')
+ValueError: Такая точка на карте земли не найдена
+
+2024-12-25 01:39:19,157 - ERROR - ValueError in process_end_city: Ошибка преобразования данных, покеда
+2024-12-25 01:39:19,157 - ERROR - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 92, in process_end_city
+    weather_data = WeatherReceiver(weather_api_key).get_weather(city_coords[0], city_coords[1])
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/weather_receiver.py", line 58, in get_weather
+    raise ValueError('Ошибка преобразования данных, покеда')
+ValueError: Ошибка преобразования данных, покеда
+
+2024-12-25 01:42:37,756 - CRITICAL - Unhandled Exception in process_start_city: Ошибка преобразования данных, покеда
+2024-12-25 01:42:37,757 - CRITICAL - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 74, in process_start_city
+    weather_data = WeatherReceiver(weather_api_key).get_weather(city_coords[0], city_coords[1])
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/weather_receiver.py", line 58, in get_weather
+    raise Exception('Ошибка преобразования данных, покеда')
+Exception: Ошибка преобразования данных, покеда
+
+2024-12-25 01:44:12,717 - CRITICAL - Unhandled Exception in process_start_city: Ошибка преобразования данных, покеда
+2024-12-25 01:44:12,717 - CRITICAL - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/test.py", line 74, in process_start_city
+    weather_data = WeatherReceiver(weather_api_key).get_weather(city_coords[0], city_coords[1])
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/weather_receiver.py", line 58, in get_weather
+    raise Exception('Ошибка преобразования данных, покеда')
+Exception: Ошибка преобразования данных, покеда
+
+2024-12-25 01:51:45,530 - ERROR - ValueError in forecast: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
+2024-12-25 01:51:45,531 - ERROR - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 166, in forecast
+    temp_path, rain_path = generate_graphs(user_id, city, days)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/create_graph.py", line 41, in generate_graphs
+    pio.write_image(fig_temp, temp_path)
+  File "/home/efim/PycharmProjects/CU_weather_bot/.venv/lib/python3.10/site-packages/plotly/io/_kaleido.py", line 266, in write_image
+    img_data = to_image(
+  File "/home/efim/PycharmProjects/CU_weather_bot/.venv/lib/python3.10/site-packages/plotly/io/_kaleido.py", line 132, in to_image
+    raise ValueError(
+ValueError: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
+
+2024-12-25 01:51:57,773 - ERROR - ValueError in forecast: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
+2024-12-25 01:51:57,773 - ERROR - Traceback (most recent call last):
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 37, in wrapper
+    return await handler(*args, **kwargs)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/handlers/weather.py", line 166, in forecast
+    temp_path, rain_path = generate_graphs(user_id, city, days)
+  File "/home/efim/PycharmProjects/CU_weather_bot/bot/utils/create_graph.py", line 41, in generate_graphs
+    pio.write_image(fig_temp, temp_path)
+  File "/home/efim/PycharmProjects/CU_weather_bot/.venv/lib/python3.10/site-packages/plotly/io/_kaleido.py", line 266, in write_image
+    img_data = to_image(
+  File "/home/efim/PycharmProjects/CU_weather_bot/.venv/lib/python3.10/site-packages/plotly/io/_kaleido.py", line 132, in to_image
+    raise ValueError(
+ValueError: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
+

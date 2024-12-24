@@ -4,27 +4,177 @@
         "city_coords": [
             37.617698,
             55.755864
+        ],
+        "weather_data": [
+            {
+                "date": "2024-12-24T07:00:00+03:30",
+                "max_temp": 14.2,
+                "min_temp": 1.9,
+                "avg_temp": 8.049999999999999,
+                "day_forecast": {
+                    "humidity": 53,
+                    "wind_speed": 9.3,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 64,
+                    "wind_speed": 9.3,
+                    "rain_probability": 1
+                }
+            },
+            {
+                "date": "2024-12-25T07:00:00+03:30",
+                "max_temp": 14.2,
+                "min_temp": 1.9,
+                "avg_temp": 8.049999999999999,
+                "day_forecast": {
+                    "humidity": 54,
+                    "wind_speed": 11.1,
+                    "rain_probability": 1
+                },
+                "night_forecast": {
+                    "humidity": 77,
+                    "wind_speed": 9.3,
+                    "rain_probability": 1
+                }
+            },
+            {
+                "date": "2024-12-26T07:00:00+03:30",
+                "max_temp": 15.5,
+                "min_temp": 2.8,
+                "avg_temp": 9.15,
+                "day_forecast": {
+                    "humidity": 49,
+                    "wind_speed": 11.1,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 57,
+                    "wind_speed": 11.1,
+                    "rain_probability": 0
+                }
+            },
+            {
+                "date": "2024-12-27T07:00:00+03:30",
+                "max_temp": 16.5,
+                "min_temp": 5.4,
+                "avg_temp": 10.95,
+                "day_forecast": {
+                    "humidity": 45,
+                    "wind_speed": 5.6,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 51,
+                    "wind_speed": 13.0,
+                    "rain_probability": 0
+                }
+            },
+            {
+                "date": "2024-12-28T07:00:00+03:30",
+                "max_temp": 16.7,
+                "min_temp": 5.8,
+                "avg_temp": 11.25,
+                "day_forecast": {
+                    "humidity": 39,
+                    "wind_speed": 11.1,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 56,
+                    "wind_speed": 5.6,
+                    "rain_probability": 55
+                }
+            }
         ]
     },
     "city_1": {
-        "city_name": "Питер",
+        "city_name": "Милано",
         "city_coords": [
-            30.314494,
-            59.938676
-        ]
-    },
-    "city_2": {
-        "city_name": "Казань",
-        "city_coords": [
-            49.106414,
-            55.796127
-        ]
-    },
-    "city_3": {
-        "city_name": "Флорида",
-        "city_coords": [
-            -81.670873,
-            27.975451
+            9.189595,
+            45.464183
+        ],
+        "weather_data": [
+            {
+                "date": "2024-12-24T07:00:00+03:00",
+                "max_temp": 35.4,
+                "min_temp": 14.5,
+                "avg_temp": 24.95,
+                "day_forecast": {
+                    "humidity": 27,
+                    "wind_speed": 5.6,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 59,
+                    "wind_speed": 9.3,
+                    "rain_probability": 1
+                }
+            },
+            {
+                "date": "2024-12-25T07:00:00+03:00",
+                "max_temp": 31.4,
+                "min_temp": 12.2,
+                "avg_temp": 21.799999999999997,
+                "day_forecast": {
+                    "humidity": 34,
+                    "wind_speed": 11.1,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 66,
+                    "wind_speed": 11.1,
+                    "rain_probability": 1
+                }
+            },
+            {
+                "date": "2024-12-26T07:00:00+03:00",
+                "max_temp": 32.6,
+                "min_temp": 13.3,
+                "avg_temp": 22.950000000000003,
+                "day_forecast": {
+                    "humidity": 30,
+                    "wind_speed": 14.8,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 64,
+                    "wind_speed": 11.1,
+                    "rain_probability": 0
+                }
+            },
+            {
+                "date": "2024-12-27T07:00:00+03:00",
+                "max_temp": 30.9,
+                "min_temp": 12.3,
+                "avg_temp": 21.6,
+                "day_forecast": {
+                    "humidity": 35,
+                    "wind_speed": 20.4,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 62,
+                    "wind_speed": 9.3,
+                    "rain_probability": 0
+                }
+            },
+            {
+                "date": "2024-12-28T07:00:00+03:00",
+                "max_temp": 30.4,
+                "min_temp": 12.0,
+                "avg_temp": 21.2,
+                "day_forecast": {
+                    "humidity": 35,
+                    "wind_speed": 18.5,
+                    "rain_probability": 0
+                },
+                "night_forecast": {
+                    "humidity": 67,
+                    "wind_speed": 11.1,
+                    "rain_probability": 1
+                }
+            }
         ]
     }
 }

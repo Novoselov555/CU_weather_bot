@@ -55,14 +55,4 @@ class WeatherReceiver:
                 daily_parameters.append(params)
             return daily_parameters
         else:
-
-            print(f'Ошибка запроса: {response.status_code}, {response.text}')
-
-
-
-# api_key = 'AGlRoTK491bc73SZrvSPGGx6fisQS586'
-# location = WeatherReceiver(api_key)
-# # lat, lon = 52.516259, 13.377217
-# lat, lon = 66.084712, 76.680559
-# location.get_weather(lat, lon)
-# weather_key_parameters()
+            raise Exception('Ошибка преобразования данных, покеда')
