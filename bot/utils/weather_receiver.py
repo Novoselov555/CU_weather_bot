@@ -32,47 +32,32 @@ class WeatherReceiver:
         response = requests.get(self.forecast_url + f'{location_key}/', params=params)
         if response.status_code == 200:
             data = response.json()
-            with open('weather_forecast.json', 'w', encoding='utf-8') as file:
-                json.dump(data, file, ensure_ascii=False, indent=4)
+            daily_parameters = list()
+            for daily_forecast in data['DailyForecasts']:
+                # так как мы не знаем, когда поедут люди в путешествие, целесообразно брать прогноз погоды как на день, так и на ночь
+                params = {
+                    'date': daily_forecast['Date'],
+                    'max_temp': daily_forecast['Temperature']['Maximum']['Value'],
+                    'min_temp': daily_forecast['Temperature']['Minimum']['Value'],
+                    'avg_temp': (daily_forecast['Temperature']['Maximum']['Value'] +
+                                 daily_forecast['Temperature']['Minimum']['Value']) / 2,
+                    'day_forecast': {
+                        'humidity': daily_forecast['Day']['RelativeHumidity']['Average'],
+                        'wind_speed': daily_forecast['Day']['Wind']['Speed']['Value'],
+                        'rain_probability': daily_forecast['Day']['RainProbability'],
+                    },
+                    'night_forecast': {
+                        'humidity': daily_forecast['Night']['RelativeHumidity']['Average'],
+                        'wind_speed': daily_forecast['Night']['Wind']['Speed']['Value'],
+                        'rain_probability': daily_forecast['Night']['RainProbability']
+                    }
+                }
+                daily_parameters.append(params)
+            return daily_parameters
         else:
+
             print(f'Ошибка запроса: {response.status_code}, {response.text}')
 
-# Оставляем лишь ключевые параметры
-def weather_key_parameters():
-    try:
-        with open('weather_forecast.json', 'r') as file:
-            data = json.load(file)
-
-        daily_parameters = list()
-        for daily_forecast in data['DailyForecasts']:
-            # так как мы не знаем, когда поедут люди в путешествие, целесообразно брать прогноз погоды как на день, так и на ночь
-            params = {
-                'date': daily_forecast['Date'],
-                'max_temp': daily_forecast['Temperature']['Maximum']['Value'],
-                'min_temp': daily_forecast['Temperature']['Minimum']['Value'],
-                'avg_temp': (daily_forecast['Temperature']['Maximum']['Value'] +
-                             daily_forecast['Temperature']['Minimum']['Value']) / 2,
-                'day_forecast': {
-                    'humidity': daily_forecast['Day']['RelativeHumidity']['Average'],
-                    'wind_speed': daily_forecast['Day']['Wind']['Speed']['Value'],
-                    'rain_probability': daily_forecast['Day']['RainProbability'],
-                },
-                'night_forecast': {
-                    'humidity': daily_forecast['Night']['RelativeHumidity']['Average'],
-                    'wind_speed': daily_forecast['Night']['Wind']['Speed']['Value'],
-                    'rain_probability': daily_forecast['Night']['RainProbability']
-                }
-            }
-            daily_parameters.append(params)
-
-        with open('weather_key_parameters.json', 'w', encoding='utf-8') as file:
-            json.dump(daily_parameters, file, ensure_ascii=False, indent=4)
-
-        return daily_parameters
-    except FileNotFoundError:
-        print('Файл "weather_forecast" не найден')
-    except Exception as e:
-        print(f'Произошла ошибка: {e}')
 
 
 # api_key = 'AGlRoTK491bc73SZrvSPGGx6fisQS586'
